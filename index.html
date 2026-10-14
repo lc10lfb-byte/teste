@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#C8102E">
+
+<title>Pastelaria As Cris — Piquet Carneiro | Pastel frito na hora</title>
+<meta name="description" content="Pastel frito na hora, massa sequinha e recheio generoso. Tradicionais a partir de R$ 10. Peça pelo WhatsApp e receba quentinho em Piquet Carneiro.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pastelaria As Cris — Piquet Carneiro">
+<meta property="og:description" content="O pastel mais crocante e recheado de Piquet Carneiro. Peça agora e receba quentinho.">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { DEFAULT: '#C8102E', dark: '#9B0C23', light: '#E11D38' },
+          gold:  { DEFAULT: '#F5C518', dark: '#E0AC0A', light: '#FFD84D' },
+          ink:   { DEFAULT: '#0F0F0F', soft: '#3F3F3F', muted: '#737373' },
+          cream: { DEFAULT: '#FFF8F0', dark: '#F5EBDE' }
+        },
+        fontFamily: {
+          display: ['"Bebas Neue"', 'Impact', 'sans-serif'],
+          sans:    ['Poppins', 'system-ui', 'sans-serif']
+        },
+        boxShadow: {
+          card: '0 1px 2px rgba(15,15,15,.04), 0 12px 28px -12px rgba(15,15,15,.15)',
+          lift: '0 16px 40px -12px rgba(200,16,46,.55)',
+          gold: '0 10px 30px -10px rgba(245,197,24,.6)'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', system-ui, sans-serif; }
+  .font-display { font-family: 'Bebas Neue', Impact, sans-serif; letter-spacing: .02em; }
+
+  @keyframes pulseCta {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200,16,46,.6), 0 16px 40px -12px rgba(200,16,46,.5); transform: scale(1); }
+    50%      { box-shadow: 0 0 0 18px rgba(200,16,46,0), 0 16px 40px -12px rgba(200,16,46,.5); transform: scale(1.015); }
+  }
+  .cta-pulse { animation: pulseCta 2.2s cubic-bezier(.4,0,.6,1) infinite; }
+
+  @keyframes toastIn {
+    from { opacity: 0; transform: translate(-50%, 24px) scale(.94); }
+    to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  }
+  .toast-in { animation: toastIn .3s cubic-bezier(.2,.8,.2,1); }
+
+  @keyframes cartBump {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.4); }
+    100% { transform: scale(1); }
+  }
+  .cart-bump { animation: cartBump .4s cubic-bezier(.2,.8,.2,1); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp .5s cubic-bezier(.2,.8,.2,1) both; }
+
+  section[id], div[id^="cat-"] { scroll-margin-top: 120px; }
+
+  .no-bar::-webkit-scrollbar { display: none; }
+  .no-bar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .bg-noise {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,.045) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee { animation: marquee 24s linear infinite; }
+
+  .err { color: #C8102E; font-size: .75rem; margin-top: .25rem; font-weight: 600; }
+
+  /* moldura do QR */
+  .qr-frame {
+    background: #fff;
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 2px #F5C518, 0 8px 24px -8px rgba(15,15,15,.2);
+    display: inline-block;
+    line-height: 0;
+  }
+  .qr-frame img, .qr-frame canvas { display: block !important; }
+</style>
+</head>
+
+<body class="bg-cream text-ink antialiased selection:bg-brand selection:text-white">
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="fixed inset-x-0 top-0 z-50 bg-ink/95 backdrop-blur-md border-b-2 border-gold/40">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16 sm:h-18">
+      <a href="#topo" class="flex items-center gap-2.5 shrink-0">
+        <span class="grid place-items-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-brand ring-2 ring-gold shadow-md">
+          <span class="font-display text-gold text-xl sm:text-2xl leading-none mt-0.5">A</span>
+        </span>
+        <span class="leading-none">
+          <span class="block font-display text-xl sm:text-2xl text-white leading-none tracking-wide">AS CRIS</span>
+          <span class="block text-[9px] sm:text-[10px] font-bold tracking-[.32em] uppercase text-gold mt-0.5">Pastelaria</span>
+        </span>
+      </a>
+
+      <div id="status-badge" class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-[11px] sm:text-xs font-bold ring-1 ring-white/15 transition-colors">
+        <span class="relative flex h-2 w-2">
+          <span id="status-ping" class="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"></span>
+          <span id="status-dot" class="relative inline-flex rounded-full h-2 w-2"></span>
+        </span>
+        <span id="status-text" class="text-white">Verificando…</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="topo" class="pt-16 sm:pt-18">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative overflow-hidden bg-ink bg-noise">
+    <div class="absolute -top-40 -right-32 h-[28rem] w-[28rem] rounded-full bg-brand/40 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gold/20 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20 lg:py-24">
+      <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-12 lg:gap-16 items-center">
+
+        <div class="text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 rounded-full bg-brand/20 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-gold ring-1 ring-gold/40">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            Frito na hora · Piquet Carneiro
+          </div>
+
+          <h1 class="mt-5 font-display text-[3rem] sm:text-[4.5rem] lg:text-[5.5rem] leading-[.92] text-white uppercase">
+            O pastel mais<br>
+            <span class="text-gold">crocante</span> e recheado<br>
+            da região.
+          </h1>
+
+          <p class="mt-5 text-base sm:text-lg text-white/70 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            Massa fininha, recheio generoso e fritura na hora.
+            Do tradicional ao especial — tem pra todos os gostos.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start">
+            <a href="#cardapio" class="cta-pulse group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-brand px-8 py-4 text-base font-extrabold text-white uppercase tracking-wide hover:bg-brand-dark active:scale-[.98] transition">
+              <span class="font-display text-2xl leading-none">Ver Cardápio</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+
+            <a href="https://wa.me/5588997063185?text=Ol%C3%A1%20Cris!%20Queria%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-white/5 px-6 py-4 text-sm font-bold text-white ring-1 ring-white/15 hover:bg-white/10 transition">
+              <svg class="w-5 h-5 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Tirar dúvida
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 justify-center lg:justify-start text-xs sm:text-sm">
+            <div class="flex items-center gap-2">
+              <div class="flex text-gold">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+              </div>
+              <span class="font-bold text-white">4,9</span>
+              <span class="text-white/50">· +500 pedidos</span>
+            </div>
+            <div class="flex items-center gap-2 text-white/60">
+              <svg class="w-4 h-4 text-brand-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Aberto todos os dias · 18h às 22h
+            </div>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-sm lg:max-w-none">
+          <div class="relative rounded-[2rem] bg-white p-3 shadow-2xl ring-1 ring-white/10 rotate-2">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=900&q=80" alt="Pastel dourado e crocante recém-frito" class="w-full aspect-[4/5] object-cover rounded-[1.5rem]" loading="eager">
+            <div class="absolute -bottom-5 -left-5 rounded-2xl bg-gold px-4 py-3 shadow-gold -rotate-6">
+              <p class="font-display text-2xl text-ink leading-none">A PARTIR DE</p>
+              <p class="font-display text-4xl text-brand leading-none mt-0.5">R$ 10,00</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="relative bg-brand border-y-2 border-gold/40 py-3 overflow-hidden">
+      <div class="flex marquee whitespace-nowrap">
+        <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-xl sm:text-2xl text-white uppercase">
+          <span>🥟 Frito na hora</span><span class="text-gold">★</span>
+          <span>🧀 Recheio generoso</span><span class="text-gold">★</span>
+          <span>🚚 Entrega rápida</span><span class="text-gold">★</span>
+          <span>💬 Peça pelo WhatsApp</span><span class="text-gold">★</span>
+        </div>
+        <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-xl sm:text-2xl text-white uppercase" aria-hidden="true">
+          <span>🥟 Frito na hora</span><span class="text-gold">★</span>
+          <span>🧀 Recheio generoso</span><span class="text-gold">★</span>
+          <span>🚚 Entrega rápida</span><span class="text-gold">★</span>
+          <span>💬 Peça pelo WhatsApp</span><span class="text-gold">★</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIFERENCIAIS ═══ -->
+  <section class="py-14 sm:py-20 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="font-display text-lg text-brand tracking-[.2em]">POR QUE A GENTE?</span>
+      </div>
+
+      <div class="grid gap-4 sm:gap-5 sm:grid-cols-3">
+        <article class="rounded-3xl bg-white p-6 sm:p-7 ring-2 ring-ink/5 hover:ring-brand/20 hover:shadow-card transition-all">
+          <div class="grid place-items-center w-14 h-14 rounded-2xl bg-brand text-gold">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s4 4.5 4 8a4 4 0 0 1-8 0c0-1 .5-2 .5-2S6 10 6 13a6 6 0 0 0 12 0c0-5-6-11-6-11z"/></svg>
+          </div>
+          <h3 class="mt-4 font-display text-2xl text-ink tracking-wide">FRITO NA HORA</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Cai na panela só depois do seu pedido. Nada de pastel esperando em estufa — é crocância do começo ao fim.</p>
+        </article>
+
+        <article class="rounded-3xl bg-white p-6 sm:p-7 ring-2 ring-ink/5 hover:ring-brand/20 hover:shadow-card transition-all">
+          <div class="grid place-items-center w-14 h-14 rounded-2xl bg-brand text-gold">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>
+          </div>
+          <h3 class="mt-4 font-display text-2xl text-ink tracking-wide">ENTREGA RÁPIDA</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Atendemos toda Piquet Carneiro e região. Embalagem térmica pra chegar quentinho e ainda crocante.</p>
+        </article>
+
+        <article class="rounded-3xl bg-white p-6 sm:p-7 ring-2 ring-ink/5 hover:ring-brand/20 hover:shadow-card transition-all">
+          <div class="grid place-items-center w-14 h-14 rounded-2xl bg-brand text-gold">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16Z"/><path d="M4 20c3-3 6-5 10-7"/></svg>
+          </div>
+          <h3 class="mt-4 font-display text-2xl text-ink tracking-wide">INGREDIENTES SELECIONADOS</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Carne de sol temperada na casa, catupiry original e cheddar de verdade. Qualidade que se sente na primeira mordida.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CARDÁPIO ═══ -->
+  <section id="cardapio" class="py-14 sm:py-20 bg-cream-dark relative">
+    <div class="absolute inset-0 bg-noise opacity-30"></div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="font-display text-lg text-brand tracking-[.2em]">CARDÁPIO</span>
+        <h2 class="mt-1 font-display text-5xl sm:text-6xl text-ink uppercase leading-none">Monte o seu pedido</h2>
+        <p class="mt-3 text-ink-soft text-sm sm:text-base">
+          Toque em <strong class="text-brand">Adicionar</strong> nos sabores que quiser.<br class="hidden sm:block">
+          No final, é só finalizar direto no WhatsApp.
+        </p>
+      </div>
+
+      <nav class="mt-8 sticky top-16 sm:top-18 z-30 -mx-4 px-4 sm:mx-0 sm:px-0 py-3 bg-cream-dark/95 backdrop-blur-sm">
+        <div class="flex gap-2 overflow-x-auto no-bar" id="cat-nav"></div>
+      </nav>
+
+      <div id="menu-root" class="mt-6 space-y-14"></div>
+    </div>
+  </section>
+
+  <!-- ═══ PROVA SOCIAL ═══ -->
+  <section class="py-14 sm:py-20 bg-ink bg-noise text-white relative overflow-hidden">
+    <div class="absolute -top-32 right-0 h-96 w-96 rounded-full bg-brand/25 blur-3xl"></div>
+    <div class="absolute -bottom-32 left-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="font-display text-lg text-gold tracking-[.2em]">QUEM JÁ PROVOU</span>
+        <h2 class="mt-1 font-display text-5xl sm:text-6xl uppercase leading-none">A vizinhança <span class="text-gold">aprova</span></h2>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-3">
+        <figure class="rounded-3xl bg-white/[.04] p-6 ring-1 ring-white/10 backdrop-blur-sm">
+          <div class="flex gap-0.5 text-gold">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+          </div>
+          <blockquote class="mt-4 text-sm leading-relaxed text-white/70">"Pedi a Delícia das Cris e quase não acreditei. Vem transbordando de recheio e a massa continua crocante mesmo depois de chegar em casa. Virou pedido fixo de sexta."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-gold font-display text-lg">JM</span>
+            <span>
+              <span class="block text-sm font-bold text-white">Joana Martins</span>
+              <span class="block text-[11px] text-white/40 uppercase tracking-wider">Piquet Carneiro · Centro</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl bg-white/[.04] p-6 ring-1 ring-white/10 backdrop-blur-sm">
+          <div class="flex gap-0.5 text-gold">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+          </div>
+          <blockquote class="mt-4 text-sm leading-relaxed text-white/70">"Atendimento da Cris é outro nível. Ela lembra do pedido, avisa quando sai pra entrega e ainda manda um recado simpático. O Piquet Carneiro é absurdo de bom."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-gold font-display text-lg">RA</span>
+            <span>
+              <span class="block text-sm font-bold text-white">Rafael Alencar</span>
+              <span class="block text-[11px] text-white/40 uppercase tracking-wider">Piquet Carneiro · Bairro Novo</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="rounded-3xl bg-white/[.04] p-6 ring-1 ring-white/10 backdrop-blur-sm">
+          <div class="flex gap-0.5 text-gold">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+          </div>
+          <blockquote class="mt-4 text-sm leading-relaxed text-white/70">"Encomendei 30 pastéis pro aniversário do meu filho e chegou tudo quentinho, embalado separado por sabor e no horário combinado. Salvaram a festa."</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="grid place-items-center w-10 h-10 rounded-full bg-brand text-gold font-display text-lg">CL</span>
+            <span>
+              <span class="block text-sm font-bold text-white">Carla Lima</span>
+              <span class="block text-[11px] text-white/40 uppercase tracking-wider">Piquet Carneiro · Alto da Serra</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-ink border-t-4 border-brand">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+    <div class="grid gap-10 sm:grid-cols-3">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-full bg-brand ring-2 ring-gold">
+            <span class="font-display text-gold text-2xl leading-none mt-0.5">A</span>
+          </span>
+          <div>
+            <p class="font-display text-2xl text-white leading-none">AS CRIS</p>
+            <p class="text-[10px] font-bold tracking-[.32em] uppercase text-gold mt-0.5">Pastelaria</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed text-white/50">Pastel frito na hora, massa sequinha e recheio generoso. Tradição de Piquet Carneiro, direto na sua porta.</p>
+      </div>
+
+      <div>
+        <h3 class="font-display text-lg text-gold tracking-[.15em]">HORÁRIO</h3>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li class="flex justify-between gap-4 border-b border-white/10 pb-2.5"><span class="text-white/50">Segunda a Sábado</span><span class="font-bold text-white">18h — 22h</span></li>
+          <li class="flex justify-between gap-4 border-b border-white/10 pb-2.5"><span class="text-white/50">Domingo</span><span class="font-bold text-white">18h — 22h</span></li>
+        </ul>
+        <h3 class="mt-6 font-display text-lg text-gold tracking-[.15em]">ENTREGA</h3>
+        <p class="mt-3 text-sm text-white/50 leading-relaxed">Taxa fixa para o centro de Piquet Carneiro.<br>Demais bairros: <span class="text-white font-bold">consulte pelo WhatsApp</span>.</p>
+      </div>
+
+      <div>
+        <h3 class="font-display text-lg text-gold tracking-[.15em]">FALE COM A GENTE</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li>
+            <a href="https://wa.me/5588997063185" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 text-white/70 hover:text-white transition">
+              <svg class="w-4 h-4 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              (88) 99706-3185
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/pastelaria_ascris" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 text-white/70 hover:text-white transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @pastelaria_ascris
+            </a>
+          </li>
+          <li class="flex items-start gap-2.5 text-white/50">
+            <svg class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Piquet Carneiro — Ceará
+          </li>
+        </ul>
+        <a href="#cardapio" class="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-extrabold text-white uppercase tracking-wide hover:bg-brand-dark transition">
+          Ver cardápio
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
+      <p>© <span id="ano"></span> Pastelaria As Cris. Todos os direitos reservados.</p>
+      <p>Feito com fome e carinho em Piquet Carneiro.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ WHATSAPP FLUTUANTE ═══ -->
+<a id="wa-float"
+   href="https://wa.me/5588997063185?text=Ol%C3%A1%20Cris!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido."
+   target="_blank" rel="noopener" aria-label="Falar no WhatsApp"
+   class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 grid place-items-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-6px_rgba(37,211,102,.7)] hover:scale-105 active:scale-95 transition-transform">
+  <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ═══ CARRINHO ═══ -->
+<div id="cart-bar" class="fixed inset-x-0 bottom-0 z-40 translate-y-full opacity-0 transition-all duration-300 ease-out">
+  <div class="mx-auto max-w-6xl px-3 sm:px-6 pb-3 sm:pb-5">
+    <div class="rounded-2xl bg-ink text-white shadow-2xl ring-1 ring-white/10 px-4 py-3.5 flex items-center gap-4 border border-gold/20">
+      <div class="grid place-items-center w-11 h-11 rounded-xl bg-brand shrink-0 relative">
+        <svg class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/>
+          <path d="M2 3h2.2l2.3 11.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 2-1.55L21 7H5"/>
+        </svg>
+        <span id="cart-count" class="absolute -top-1.5 -right-1.5 grid place-items-center min-w-[20px] h-5 px-1 rounded-full bg-gold text-ink text-[11px] font-extrabold">0</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Seu pedido</p>
+        <p id="cart-total" class="font-display text-2xl leading-tight text-gold">R$ 0,00</p>
+      </div>
+      <button type="button" id="btn-finalizar" class="shrink-0 inline-flex items-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-extrabold text-white uppercase tracking-wide hover:bg-brand-dark active:scale-[.97] transition">
+        Finalizar
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL: FORMULÁRIO ═══ -->
+<div id="modal" class="fixed inset-0 z-[60] hidden">
+  <div id="modal-backdrop" class="absolute inset-0 bg-ink/70 backdrop-blur-sm"></div>
+
+  <div class="relative h-full w-full overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="modal-panel" class="w-full sm:max-w-lg bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl translate-y-full sm:translate-y-0 sm:scale-95 opacity-0 transition-all duration-300">
+
+      <div class="flex items-center justify-between px-5 sm:px-6 pt-5 pb-4 border-b-2 border-ink/5">
+        <div>
+          <h2 class="font-display text-2xl text-ink uppercase leading-none">Finalizar pedido</h2>
+          <p class="text-xs text-ink-muted mt-1">Preencha seus dados para entrega</p>
+        </div>
+        <button type="button" id="modal-close" aria-label="Fechar" class="grid place-items-center w-9 h-9 rounded-full bg-ink/5 text-ink-soft hover:bg-ink/10 transition">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <form id="form-pedido" class="px-5 sm:px-6 py-5 space-y-4" novalidate>
+
+        <div class="rounded-2xl bg-cream p-4 ring-1 ring-ink/5">
+          <p class="text-[10px] font-extrabold uppercase tracking-widest text-ink-muted mb-2.5">Resumo</p>
+          <ul id="resumo-itens" class="space-y-1.5 text-sm max-h-40 overflow-y-auto"></ul>
+          <div class="mt-3 pt-3 border-t border-ink/10 flex items-center justify-between">
+            <span class="text-sm font-bold text-ink-soft">Total</span>
+            <span id="resumo-total" class="font-display text-2xl text-brand leading-none">R$ 0,00</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="f-nome" class="block text-[11px] font-extrabold uppercase tracking-widest text-ink-soft mb-1.5">Seu nome *</label>
+          <input id="f-nome" type="text" autocomplete="name" placeholder="Como podemos te chamar?"
+                 class="w-full rounded-xl border-2 border-ink/10 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-4 focus:ring-brand/15 transition">
+          <p class="err hidden" data-err="f-nome"></p>
+        </div>
+
+        <div>
+          <label for="f-endereco" class="block text-[11px] font-extrabold uppercase tracking-widest text-ink-soft mb-1.5">Endereço de entrega *</label>
+          <textarea id="f-endereco" rows="2" autocomplete="street-address" placeholder="Rua, número, bairro e ponto de referência"
+                    class="w-full rounded-xl border-2 border-ink/10 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-4 focus:ring-brand/15 transition resize-none"></textarea>
+          <p class="err hidden" data-err="f-endereco"></p>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-extrabold uppercase tracking-widest text-ink-soft mb-1.5">Pagamento *</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="cursor-pointer">
+              <input type="radio" name="f-pagamento" value="Pix" class="peer sr-only" checked>
+              <span class="block text-center rounded-xl border-2 border-ink/10 bg-white px-2 py-3 text-sm font-bold text-ink-soft peer-checked:border-brand peer-checked:bg-brand/5 peer-checked:text-brand transition">Pix</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="f-pagamento" value="Dinheiro" class="peer sr-only">
+              <span class="block text-center rounded-xl border-2 border-ink/10 bg-white px-2 py-3 text-sm font-bold text-ink-soft peer-checked:border-brand peer-checked:bg-brand/5 peer-checked:text-brand transition">Dinheiro</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="f-pagamento" value="Cartão na entrega" class="peer sr-only">
+              <span class="block text-center rounded-xl border-2 border-ink/10 bg-white px-2 py-3 text-sm font-bold text-ink-soft peer-checked:border-brand peer-checked:bg-brand/5 peer-checked:text-brand transition">Cartão</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="f-obs" class="block text-[11px] font-extrabold uppercase tracking-widest text-ink-soft mb-1.5">Observações</label>
+          <input id="f-obs" type="text" placeholder="Sem cebola, troco para R$ 100, etc."
+                 class="w-full rounded-xl border-2 border-ink/10 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-4 focus:ring-brand/15 transition">
+        </div>
+
+        <p class="text-[11px] leading-relaxed text-ink-muted">A taxa de entrega é confirmada pela Cris no WhatsApp de acordo com o seu bairro.</p>
+
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2.5 rounded-xl bg-brand px-6 py-4 text-sm font-extrabold text-white uppercase tracking-wide shadow-lift hover:bg-brand-dark active:scale-[.98] transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Continuar
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL: PIX ═══ -->
+<div id="pix-modal" class="fixed inset-0 z-[65] hidden">
+  <div id="pix-backdrop" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+
+  <div class="relative h-full w-full overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="pix-panel" class="w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl translate-y-full sm:translate-y-0 sm:scale-95 opacity-0 transition-all duration-300">
+
+      <div class="relative bg-gradient-to-br from-brand to-brand-dark px-5 sm:px-6 pt-6 pb-8 rounded-t-3xl sm:rounded-t-3xl overflow-hidden">
+        <div class="absolute inset-0 bg-noise opacity-40"></div>
+        <div class="relative text-center">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-gold ring-1 ring-gold/40">
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11.3 1.046A1 1 0 0 1 12.7 1l.001.001.002.001c.001.001.002.001.002.002.134.075 1.55.882 1.55 3.23 0 2.786-2.006 4.15-2.006 5.35 0 .406.156.79.42 1.07.02-.02.04-.04.06-.06.32-.42.42-1.02.42-1.77 0-1.4 1.026-2.75 2.02-3.56.16-.13.29-.29.38-.47a.7.7 0 0 1 1.19-.15c.53.61 1.35 1.83 1.35 3.61 0 2.86-1.84 5.65-4.32 7.05-.31.18-.4.27-.4.35 0 .07.05.14.16.24.33.29.75.44 1.19.44.43 0 .86-.15 1.18-.43.16-.14.39-.15.56-.02a5.98 5.98 0 0 1 2.2 4.6c0 .48-.06.95-.17 1.4a.7.7 0 0 1-.55.53C18.5 23.96 15.36 24 12 24 5.4 24 0 18.6 0 12 0 5.4 5.4 0 12 0c.28 0 .55.01.82.03.35.03.6.36.48.7a1.05 1.05 0 0 1-.72.65c-.83.2-1.28 1.06-1.28 1.06-.02.05-.02.11 0 .16.08.18.02.4-.14.53-.58.47-.96 1.16-.96 1.97 0 1.4 1.13 2.53 2.53 2.53.68 0 1.29-.27 1.74-.7.15-.15.4-.16.56-.02.16.13.19.36.09.54-.11.2-.44.79-.84 1.1-.15.12-.16.33-.05.48.05.08.13.14.22.16.43.1.87-.02 1.18-.31.15-.14.38-.16.55-.03.31.24.51.61.51 1.03 0 .31-.11.61-.31.85-.12.14-.35.17-.5.05-.11-.09-.26-.13-.4-.11-.14.02-.27.1-.36.22-.13.18-.37.22-.54.09-.33-.24-.78-.28-1.15-.1-.37.17-.62.53-.66.94-.02.18-.14.33-.31.4-.3.13-.58.31-.82.54-.13.12-.33.14-.47.04-.28-.19-.62-.26-.95-.2-.33.05-.63.24-.82.5-.13.18-.37.24-.56.15-.34-.15-.72-.17-1.07-.06-.35.12-.64.38-.79.71-.08.18-.28.28-.47.24-.32-.07-.65-.04-.96.08-.31.13-.57.37-.71.67-.09.19-.31.28-.5.21-.32-.12-.67-.15-1-.07-.33.07-.63.27-.84.54-.13.17-.36.23-.55.14-.28-.13-.6-.16-.9-.08-.3.09-.55.3-.71.57-.1.18-.33.26-.52.19-.32-.12-.67-.13-1-.02-.33.11-.6.35-.74.66-.09.19-.32.28-.51.21a1.4 1.4 0 0 0-1-.02c-.32.12-.58.37-.71.69-.08.19-.31.29-.5.23-.31-.09-.65-.08-.96.04-.31.13-.56.37-.68.68-.08.19-.31.29-.5.24a1.4 1.4 0 0 0-.97.09c-.3.16-.52.43-.6.77-.05.2-.26.33-.46.31a1.4 1.4 0 0 0-.93.24c-.27.2-.44.51-.46.85-.01.2-.19.36-.39.37-.24.02-.48.09-.7.22-.32.19-.55.5-.64.86-.05.2-.25.34-.45.34-.23 0-.45.05-.66.15-.35.16-.6.47-.69.85-.05.2-.24.34-.44.35-.21.01-.42.06-.61.15-.34.16-.6.47-.7.83-.06.19-.25.33-.44.34a1.4 1.4 0 0 0-.59.16c-.33.17-.57.48-.66.85-.05.2-.25.34-.45.34a1.4 1.4 0 0 0-.55.17c-.31.19-.53.5-.6.87-.05.2-.25.33-.45.33-.2 0-.39.06-.55.18-.3.2-.51.53-.57.9z"/></svg>
+            Pagamento via Pix
+          </div>
+          <h2 class="mt-3 font-display text-3xl text-white uppercase leading-none">Escaneie para pagar</h2>
+          <p class="mt-1.5 text-sm text-white/70">O valor já vem preenchido no app do banco</p>
+        </div>
+      </div>
+
+      <div class="px-5 sm:px-6 -mt-4">
+        <div class="bg-white rounded-2xl shadow-xl ring-1 ring-ink/5 p-5 text-center">
+          <p class="text-[10px] font-extrabold uppercase tracking-widest text-ink-muted">Valor a pagar</p>
+          <p id="pix-valor" class="font-display text-4xl text-brand leading-none mt-1">R$ 0,00</p>
+
+          <div class="mt-5 flex justify-center">
+            <div class="qr-frame">
+              <div id="pix-qrcode"></div>
+            </div>
+          </div>
+
+          <p class="mt-4 text-[11px] font-bold uppercase tracking-widest text-ink-muted">Ou copie a chave Pix</p>
+
+          <div class="mt-2 flex items-stretch gap-2">
+            <div class="flex-1 min-w-0 rounded-xl bg-cream px-3 py-2.5 text-left ring-1 ring-ink/5">
+              <p class="text-[9px] font-extrabold uppercase tracking-widest text-ink-muted">CPF</p>
+              <p id="pix-chave" class="text-sm font-bold text-ink truncate">000.000.000-00</p>
+            </div>
+            <button type="button" id="btn-copiar-pix" class="shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-ink px-4 text-xs font-extrabold text-white uppercase tracking-wide hover:bg-brand active:scale-95 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copiar
+            </button>
+          </div>
+
+          <div class="mt-4 flex items-start gap-2.5 rounded-xl bg-gold/15 ring-1 ring-gold/30 px-3.5 py-3 text-left">
+            <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+            <p class="text-[12px] font-semibold text-ink leading-snug">
+              <strong class="text-brand">Importante:</strong> envie o comprovante para liberar a entrega.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-5 sm:px-6 py-5 space-y-2.5">
+        <button type="button" id="btn-pix-feito"
+                class="w-full inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#25D366] px-6 py-4 text-sm font-extrabold text-white uppercase tracking-wide shadow-lg hover:brightness-95 active:scale-[.98] transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Já fiz o Pix — enviar pedido
+        </button>
+
+        <button type="button" id="btn-pix-voltar"
+                class="w-full text-center text-xs font-bold text-ink-muted uppercase tracking-widest py-3 hover:text-brand transition">
+          ← Voltar e editar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div id="toast" class="fixed left-1/2 bottom-28 sm:bottom-32 z-[70] hidden">
+  <div class="toast-in rounded-full bg-ink text-white px-5 py-3 text-sm font-bold shadow-2xl flex items-center gap-2.5 border border-gold/30">
+    <span class="grid place-items-center w-5 h-5 rounded-full bg-gold">
+      <svg class="w-3 h-3 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </span>
+    <span id="toast-text">Adicionado</span>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   Pastelaria As Cris — app
+   ═══════════════════════════════════════════════════════════ */
+'use strict';
+
+const CONFIG = {
+  whatsapp:    '5588997063185',
+  marca:       'Pastelaria As Cris',
+  taxaEntrega: 'Consulte seu bairro',
+  aberto:      { hora: 18, minuto: 0 },
+  fecha:       { hora: 22, minuto: 0 },
+  diasFechados:[],
+  storageKey:  'ascris_pedido_v3',
+
+  pix: {
+    chave:          '04534887302',                  // CPF sem pontos/traços
+    chaveFormatada: '045.348.873-02',               // pra exibir na tela
+    nome:           'Antonio Gildazio Higino',      // máx 25 caracteres (sanitizado)
+    cidade:         'Piquet Carneiro',              // máx 15 caracteres
+    txid:           '***'
+  }
+};
+
+/* ═══════════ CARDÁPIO ═══════════ */
+
+const MENU = [
+  {
+    id: 'tradicionais',
+    nome: 'Tradicionais',
+    sub: 'A partir de R$ 10',
+    icone: '🥟',
+    itens: [
+      { id: 't-carne-sol', nome: 'Carne de Sol', ing: ['Carne de Sol'], preco: 10.00, desc: 'Carne de sol desfiada, temperada no ponto, dentro de uma massa fina e crocante.' },
+      { id: 't-carne',     nome: 'Carne',        ing: ['Carne'],        preco: 10.00, desc: 'Carne moída refogada com o tempero da casa. O clássico que nunca falha.' },
+      { id: 't-frango',    nome: 'Frango',       ing: ['Frango'],       preco: 10.00, desc: 'Frango desfiado cozido com alho e cebola, suculento e bem temperado.' },
+      { id: 't-queijo',    nome: 'Queijo',       ing: ['Queijo'],       preco: 10.00, desc: 'Mussarela derretida, puxando a cada mordida. Prova de fogo de qualquer pastelaria.' },
+      { id: 't-misto',     nome: 'Misto',        ing: ['Presunto', 'Queijo'], preco: 10.00, desc: 'Presunto e queijo derretidos na medida certa. Simples e perfeito.' }
+    ]
+  },
+  {
+    id: 'especiais',
+    nome: 'Especiais',
+    sub: 'R$ 12 cada',
+    icone: '⭐',
+    itens: [
+      { id: 'e-piquet',     nome: 'Piquet Carneiro',  ing: ['Carne de Sol', 'Calabresa', 'Molho'],                          preco: 12.00, badge: 'Da Casa',     desc: 'Carne de sol, calabresa e molho especial. Nossa homenagem à cidade.' },
+      { id: 'e-delicia',    nome: 'Delícia das Cris', ing: ['Carne', 'Queijo', 'Presunto', 'Milho', 'Azeitona', 'Molho'],  preco: 12.00, badge: 'Mais Pedido', desc: 'O recheio que transborda. A favorita da casa e dos clientes fiéis.' },
+      { id: 'e-acopiara',   nome: 'Acopiara',         ing: ['Carne', 'Queijo', 'Milho', 'Azeitona'],                        preco: 12.00, desc: 'Carne, queijo, milho e azeitona. Combinação que sempre dá certo.' },
+      { id: 'e-big',        nome: 'Big-Bagunça',      ing: ['Frango', 'Calabresa', 'Molho'],                                preco: 12.00, desc: 'Frango, calabresa e molho. Bagunça boa, sabor honesto.' },
+      { id: 'e-celeb',      nome: 'Celebridade',      ing: ['Carne', 'Queijo', 'Molho'],                                    preco: 12.00, desc: 'Carne, queijo e molho especial. Merece o nome que tem.' },
+      { id: 'e-pizza',      nome: 'Pizza',            ing: ['Presunto', 'Queijo', 'Milho', 'Orégano'],                      preco: 12.00, desc: 'Presunto, queijo, milho e orégano. Gosto de pizza em formato de pastel.' },
+      { id: 'e-frango-cat', nome: 'Frango Catupiri',  ing: ['Frango', 'Catupiri'],                                          preco: 12.00, desc: 'Frango desfiado com catupiry original. Cremoso do começo ao fim.' },
+      { id: 'e-super',      nome: 'Super Pastel',     ing: ['Carne de Sol', 'Queijo', 'Milho', 'Azeitona'],                 preco: 12.00, desc: 'Carne de sol, queijo, milho e azeitona. Recheio de respeito.' },
+      { id: 'e-brasil',     nome: 'Brasileirinho',    ing: ['Carne', 'Calabresa', 'Catupiri'],                              preco: 12.00, desc: 'Carne, calabresa e catupiry. Combinação que abraça.' },
+      { id: 'e-parme',      nome: 'Parmegiano',       ing: ['Frango', 'Queijo', 'Milho', 'Molho', 'Azeitona'],              preco: 12.00, desc: 'Frango, queijo, milho, molho e azeitona. Italiano com sotaque cearense.' },
+      { id: 'e-dalas',      nome: 'Dalas',            ing: ['Frango', 'Queijo', 'Calabresa', 'Milho', 'Molho'],             preco: 12.00, desc: 'Frango, queijo, calabresa, milho e molho. Recheio completo.' },
+      { id: 'e-dourado',    nome: 'Dourado',          ing: ['Carne', 'Calabresa', 'Milho', 'Cheddar'],                      preco: 12.00, desc: 'Carne, calabresa, milho e cheddar. Dourado por dentro e por fora.' },
+      { id: 'e-dueto',      nome: 'Dueto',            ing: ['Carne de Sol', 'Frango', 'Queijo', 'Cheddar'],                 preco: 12.00, desc: 'Carne de sol e frango com queijo e cheddar. Dupla imbatível.' },
+      { id: 'e-moda',       nome: 'Moda da Casa',     ing: ['Frango', 'Calabresa', 'Queijo', 'Cheddar'],                    preco: 12.00, desc: 'Frango, calabresa, queijo e cheddar. A moda que a gente faz melhor.' },
+      { id: 'e-baiano',     nome: 'Baiano',           ing: ['Carne', 'Queijo', 'Presunto', 'Orégano', 'Pimenta'],           preco: 12.00, desc: 'Carne, queijo, presunto, orégano e pimenta. Pra quem gosta de emoção.' }
+    ]
+  },
+  {
+    id: 'xtudo',
+    nome: 'X-Tudo',
+    sub: 'O rei da mesa',
+    icone: '👑',
+    itens: [
+      { id: 'xtudo', nome: 'X-Tudo As Cris', ing: ['Carne de Sol', 'Frango', 'Queijo', 'Presunto', 'Milho', 'Molho'], preco: 15.00, badge: 'Lendário', desc: 'Tem tudo que você imaginou. Carne de sol, frango, queijo, presunto, milho e molho. Pra quem tem fome de verdade.' }
+    ]
+  },
+  {
+    id: 'bebidas',
+    nome: 'Sucos & Vitaminas',
+    sub: 'R$ 6 e R$ 7',
+    icone: '🥤',
+    itens: [
+      { id: 'suco',     nome: 'Suco Natural 500ml', ing: ['Cajá', 'Maracujá', 'Manga', 'Goiaba', 'Acerola', 'Abacaxi', 'Graviola', 'Açaí c/ Morango'], preco: 6.00, desc: 'Escolha o sabor nas observações. Feito na hora, sempre gelado.' },
+      { id: 'vitamina', nome: 'Vitamina 500ml',     ing: ['Cajá', 'Maracujá', 'Manga', 'Goiaba', 'Acerola', 'Abacaxi', 'Graviola', 'Açaí c/ Morango'], preco: 7.00, desc: 'Mesmos sabores, batidos com leite. Mais cremosa, mais completa.' }
+    ]
+  }
+];
+
+/* ═══════════ ESTADO ═══════════ */
+
+let carrinho = {};
+let toastTimer = null;
+let pedidoAtual = null;   // guarda dados do formulário enquanto mostra o Pix
+
+/* ═══════════ HELPERS ═══════════ */
+
+const $  = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+function brl(v) {
+  return Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+function todosItens() { return MENU.flatMap(c => c.itens); }
+function acharItem(id) { return todosItens().find(i => i.id === id); }
+
+/* ═══════════ STATUS ═══════════ */
+
+function calcularStatus() {
+  const agora   = new Date();
+  const dia     = agora.getDay();
+  const minutos = agora.getHours() * 60 + agora.getMinutes();
+  const abreMin = CONFIG.aberto.hora * 60 + CONFIG.aberto.minuto;
+  const fechaMin = CONFIG.fecha.hora * 60 + CONFIG.fecha.minuto;
+
+  if (CONFIG.diasFechados.includes(dia)) return { aberto: false, texto: 'Fechado' };
+
+  if (minutos >= abreMin && minutos < fechaMin) {
+    const restam = fechaMin - minutos;
+    const h = Math.floor(restam / 60);
+    const m = restam % 60;
+    const falta = h > 0 ? `${h}h${m > 0 ? String(m).padStart(2,'0') : ''}` : `${m}min`;
+    return { aberto: true, texto: `Aberto · fecha em ${falta}` };
+  }
+  if (minutos < abreMin) return { aberto: false, texto: 'Abre às 18h' };
+  return { aberto: false, texto: 'Fechado' };
+}
+
+function renderStatus() {
+  const badge = $('#status-badge'), dot = $('#status-dot');
+  const ping = $('#status-ping'),   txt = $('#status-text');
+  if (!badge || !dot || !ping || !txt) return;
+
+  const { aberto, texto } = calcularStatus();
+  txt.textContent = texto;
+
+  badge.classList.remove('bg-green-500/15', 'ring-green-400/40', 'bg-white/10', 'ring-white/15');
+  dot.classList.remove('bg-green-400', 'bg-brand-light');
+  ping.classList.remove('bg-green-400', 'bg-brand-light');
+
+  if (aberto) {
+    badge.classList.add('bg-green-500/15', 'ring-green-400/40');
+    dot.classList.add('bg-green-400');
+    ping.classList.add('bg-green-400');
+    ping.style.display = '';
+  } else {
+    badge.classList.add('bg-white/10', 'ring-white/15');
+    dot.classList.add('bg-brand-light');
+    ping.classList.add('bg-brand-light');
+    ping.style.display = 'none';
+  }
+}
+
+/* ═══════════ RENDER ═══════════ */
+
+function renderNav() {
+  const nav = $('#cat-nav');
+  if (!nav) return;
+  nav.innerHTML = MENU.map((cat, i) => `
+    <a href="#cat-${cat.id}"
+       class="shrink-0 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-extrabold text-ink-soft ring-2 ring-ink/5 hover:text-brand hover:ring-brand/30 transition shadow-sm
+              ${i === 0 ? 'text-brand ring-brand/30' : ''}">
+      <span class="text-base">${cat.icone}</span>${cat.nome}
+    </a>
+  `).join('');
+}
+
+function renderMenu() {
+  const root = $('#menu-root');
+  if (!root) return;
+
+  root.innerHTML = MENU.map(cat => `
+    <div id="cat-${cat.id}" class="fade-up">
+      <div class="flex items-end justify-between gap-4 mb-6 pb-3 border-b-2 border-ink/10">
+        <div class="flex items-center gap-3">
+          <span class="grid place-items-center w-12 h-12 rounded-2xl bg-brand text-2xl shadow-md">${cat.icone}</span>
+          <div>
+            <h3 class="font-display text-3xl sm:text-4xl text-ink uppercase leading-none">${cat.nome}</h3>
+            <p class="text-xs font-bold text-brand uppercase tracking-wider mt-1">${cat.sub}</p>
+          </div>
+        </div>
+        <span class="hidden sm:block text-xs font-bold text-ink-muted uppercase tracking-wider">${cat.itens.length} ${cat.itens.length === 1 ? 'sabor' : 'sabores'}</span>
+      </div>
+
+      <div class="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        ${cat.itens.map(item => cardItem(item)).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function cardItem(item) {
+  return `
+    <article class="group relative flex flex-col rounded-2xl bg-white p-5 ring-2 ring-ink/5 hover:ring-brand/25 hover:-translate-y-1 hover:shadow-card transition-all">
+
+      ${item.badge ? `
+        <span class="absolute -top-2.5 left-4 inline-flex items-center gap-1 rounded-full bg-gold px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-ink shadow-md">
+          <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"/></svg>
+          ${item.badge}
+        </span>` : ''}
+
+      <h4 class="font-display text-2xl text-ink uppercase leading-none tracking-wide ${item.badge ? 'mt-1.5' : ''}">${item.nome}</h4>
+
+      <p class="mt-2 text-xs leading-relaxed text-ink-soft flex-1">${item.desc}</p>
+
+      <div class="mt-3 flex flex-wrap gap-1.5">
+        ${item.ing.slice(0, 6).map(i => `
+          <span class="inline-block rounded-md bg-cream-dark px-2 py-0.5 text-[10px] font-bold text-ink-soft uppercase tracking-wider">${i}</span>
+        `).join('')}
+        ${item.ing.length > 6 ? `<span class="inline-block rounded-md bg-cream-dark px-2 py-0.5 text-[10px] font-bold text-ink-muted">+${item.ing.length - 6}</span>` : ''}
+      </div>
+
+      <div class="mt-4 pt-4 border-t border-ink/5 flex items-end justify-between gap-3">
+        <div>
+          <p class="text-[9px] font-extrabold uppercase tracking-widest text-ink-muted">Preço</p>
+          <p class="font-display text-3xl text-brand leading-none mt-0.5">${brl(item.preco)}</p>
+        </div>
+
+        <button type="button" data-add="${item.id}"
+                class="shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-ink px-4 py-2.5 text-xs font-extrabold text-white uppercase tracking-wider hover:bg-brand active:scale-95 transition">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          Add
+        </button>
+      </div>
+
+      <div data-qty-wrap="${item.id}" class="hidden mt-3 pt-3 border-t-2 border-brand/20 items-center justify-between">
+        <span class="text-[10px] font-extrabold text-brand uppercase tracking-widest">No pedido</span>
+        <div class="flex items-center gap-1">
+          <button type="button" data-dec="${item.id}" aria-label="Remover um" class="grid place-items-center w-8 h-8 rounded-lg bg-cream-dark text-ink-soft hover:bg-ink/10 active:scale-90 transition font-extrabold">−</button>
+          <span data-qty="${item.id}" class="w-8 text-center font-display text-xl text-ink">0</span>
+          <button type="button" data-inc="${item.id}" aria-label="Adicionar um" class="grid place-items-center w-8 h-8 rounded-lg bg-brand text-white hover:bg-brand-dark active:scale-90 transition font-extrabold">+</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+/* ═══════════ CARRINHO ═══════════ */
+
+function carregarCarrinho() {
+  try {
+    const raw = localStorage.getItem(CONFIG.storageKey);
+    const obj = raw ? JSON.parse(raw) : {};
+    const limpo = {};
+    Object.entries(obj).forEach(([id, qtd]) => {
+      if (acharItem(id) && Number.isFinite(qtd) && qtd > 0) limpo[id] = Math.min(qtd, 99);
+    });
+    return limpo;
+  } catch { return {}; }
+}
+
+function salvarCarrinho() {
+  try { localStorage.setItem(CONFIG.storageKey, JSON.stringify(carrinho)); } catch {}
+}
+
+function itensDoCarrinho() {
+  return Object.entries(carrinho)
+    .map(([id, qtd]) => {
+      const item = acharItem(id);
+      if (!item) return null;
+      return { ...item, qtd, subtotal: item.preco * qtd };
+    })
+    .filter(Boolean);
+}
+
+function calcularTotal() {
+  return itensDoCarrinho().reduce((acc, i) => acc + i.subtotal, 0);
+}
+
+function adicionar(id, silencioso = false) {
+  if (!acharItem(id)) return;
+  carrinho[id] = Math.min((carrinho[id] || 0) + 1, 99);
+  salvarCarrinho();
+  sincronizarUI();
+  if (!silencioso) {
+    mostrarToast(`${acharItem(id).nome} adicionado`);
+    bumpCarrinho();
+  }
+}
+
+function remover(id) {
+  if (!carrinho[id]) return;
+  carrinho[id] -= 1;
+  if (carrinho[id] <= 0) delete carrinho[id];
+  salvarCarrinho();
+  sincronizarUI();
+}
+
+function limparCarrinho() {
+  carrinho = {};
+  salvarCarrinho();
+  sincronizarUI();
+}
+
+function sincronizarUI() {
+  const total    = calcularTotal();
+  const qtdTotal = Object.values(carrinho).reduce((a, b) => a + b, 0);
+
+  const bar = $('#cart-bar');
+  if (bar) {
+    if (qtdTotal > 0) {
+      bar.classList.remove('translate-y-full', 'opacity-0');
+      bar.classList.add('translate-y-0', 'opacity-100');
+    } else {
+      bar.classList.add('translate-y-full', 'opacity-0');
+      bar.classList.remove('translate-y-0', 'opacity-100');
+    }
+  }
+
+  const countEl = $('#cart-count'), totalEl = $('#cart-total');
+  if (countEl) countEl.textContent = qtdTotal;
+  if (totalEl) totalEl.textContent = brl(total);
+
+  const wa = $('#wa-float');
+  if (wa) {
+    wa.classList.toggle('bottom-28', qtdTotal > 0);
+    wa.classList.toggle('sm:bottom-32', qtdTotal > 0);
+  }
+
+  todosItens().forEach(item => {
+    const qtd  = carrinho[item.id] || 0;
+    const wrap = document.querySelector(`[data-qty-wrap="${item.id}"]`);
+    const span = document.querySelector(`[data-qty="${item.id}"]`);
+    if (wrap) {
+      wrap.classList.toggle('hidden', qtd === 0);
+      wrap.classList.toggle('flex', qtd > 0);
+    }
+    if (span) span.textContent = qtd;
+  });
+
+  renderResumo();
+}
+
+function bumpCarrinho() {
+  const el = $('#cart-count');
+  if (!el) return;
+  el.classList.remove('cart-bump');
+  void el.offsetWidth;
+  el.classList.add('cart-bump');
+}
+
+/* ═══════════ TOAST ═══════════ */
+
+function mostrarToast(msg) {
+  const toast = $('#toast'), texto = $('#toast-text');
+  if (!toast || !texto) return;
+  texto.textContent = msg;
+  toast.classList.remove('hidden');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.add('hidden'), 2400);
+}
+
+/* ═══════════ MODAL FORM ═══════════ */
+
+function renderResumo() {
+  const itens = itensDoCarrinho();
+  const ul = $('#resumo-itens');
+  if (!ul) return;
+
+  if (itens.length === 0) {
+    ul.innerHTML = `<li class="text-sm text-ink-muted">Nenhum item no pedido.</li>`;
+  } else {
+    ul.innerHTML = itens.map(i => `
+      <li class="flex items-start justify-between gap-3">
+        <span class="text-ink-soft leading-snug"><span class="font-extrabold text-brand">${i.qtd}x</span> ${i.nome}</span>
+        <span class="font-bold text-ink shrink-0">${brl(i.subtotal)}</span>
+      </li>
+    `).join('');
+  }
+
+  const totalEl = $('#resumo-total');
+  if (totalEl) totalEl.textContent = brl(calcularTotal());
+}
+
+function abrirModal() {
+  if (Object.keys(carrinho).length === 0) {
+    mostrarToast('Adicione pelo menos um item');
+    return;
+  }
+  renderResumo();
+  const modal = $('#modal'), panel = $('#modal-panel');
+  if (!modal || !panel) return;
+
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  requestAnimationFrame(() => {
+    panel.classList.remove('translate-y-full', 'opacity-0', 'sm:scale-95');
+    panel.classList.add('translate-y-0', 'opacity-100', 'sm:scale-100');
+  });
+}
+
+function fecharModal() {
+  const modal = $('#modal'), panel = $('#modal-panel');
+  if (!modal || !panel) return;
+  panel.classList.add('translate-y-full', 'opacity-0', 'sm:scale-95');
+  panel.classList.remove('translate-y-0', 'opacity-100', 'sm:scale-100');
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }, 260);
+}
+
+/* ═══════════ MODAL PIX ═══════════ */
+
+function abrirPix(valor) {
+  const modal = $('#pix-modal'), panel = $('#pix-panel');
+  if (!modal || !panel) return;
+
+  // atualiza valor e chave
+  $('#pix-valor').textContent = brl(valor);
+  $('#pix-chave').textContent = CONFIG.pix.chaveFormatada;
+
+  // limpa QR anterior
+  const box = $('#pix-qrcode');
+  box.innerHTML = '';
+
+  // gera payload PIX
+  const payload = gerarPixPayload(valor);
+
+  // gera QR code
+  if (typeof QRCode !== 'undefined') {
+    new QRCode(box, {
+      text: payload,
+      width: 220,
+      height: 220,
+      colorDark: '#0F0F0F',
+      colorLight: '#FFFFFF',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  } else {
+    box.innerHTML = '<p class="text-xs text-ink-muted p-6">Não foi possível gerar o QR. Use a chave acima.</p>';
+  }
+
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  requestAnimationFrame(() => {
+    panel.classList.remove('translate-y-full', 'opacity-0', 'sm:scale-95');
+    panel.classList.add('translate-y-0', 'opacity-100', 'sm:scale-100');
+  });
+}
+
+function fecharPix() {
+  const modal = $('#pix-modal'), panel = $('#pix-panel');
+  if (!modal || !panel) return;
+  panel.classList.add('translate-y-full', 'opacity-0', 'sm:scale-95');
+  panel.classList.remove('translate-y-0', 'opacity-100', 'sm:scale-100');
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }, 260);
+}
+
+/* ═══════════ PIX — PAYLOAD BR CODE ═══════════ */
+
+function sanitizarPix(txt, max) {
+  return String(txt)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toUpperCase()
+    .replace(/[^A-Z0-9 ]/g, '')
+    .trim()
+    .slice(0, max);
+}
+
+function campoPix(id, valor) {
+  const str = String(valor);
+  const len = String(str.length).padStart(2, '0');
+  return id + len + str;
+}
+
+function crc16(payload) {
+  let crc = 0xFFFF;
+  for (let i = 0; i < payload.length; i++) {
+    crc ^= payload.charCodeAt(i) << 8;
+    for (let j = 0; j < 8; j++) {
+      crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) : (crc << 1);
+      crc &= 0xFFFF;
+    }
+  }
+  return crc.toString(16).toUpperCase().padStart(4, '0');
+}
+
+function gerarPixPayload(valor) {
+  const chave = CONFIG.pix.chave;
+  const nome  = sanitizarPix(CONFIG.pix.nome, 25);
+  const cidade = sanitizarPix(CONFIG.pix.cidade, 15);
+  const txid  = CONFIG.pix.txid || '***';
+
+  const merchantAccount =
+    campoPix('00', 'br.gov.bcb.pix') +
+    campoPix('01', chave);
+
+  let p = '';
+  p += campoPix('00', '01');            // Payload Format Indicator
+  p += campoPix('01', '12');            // Point of Initiation Method (dinâmico/single)
+  p += campoPix('26', merchantAccount); // Merchant Account Info
+  p += campoPix('52', '0000');          // Merchant Category Code
+  p += campoPix('53', '986');           // BRL
+  p += campoPix('54', Number(valor).toFixed(2));
+  p += campoPix('58', 'BR');            // Country
+  p += campoPix('59', nome);            // Merchant Name
+  p += campoPix('60', cidade);          // Merchant City
+  p += campoPix('62', campoPix('05', txid)); // Additional Data (txid)
+  p += '6304';                          // CRC placeholder
+  p += crc16(p);
+
+  return p;
+}
+
+/* ═══════════ CÓPIA PIX ═══════════ */
+
+async function copiarPix() {
+  const chave = CONFIG.pix.chaveFormatada;
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(chave);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = chave;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    mostrarToast('Chave Pix copiada!');
+  } catch (err) {
+    mostrarToast('Não foi possível copiar');
+  }
+}
+
+/* ═══════════ VALIDAÇÃO ═══════════ */
+
+function mostrarErro(id, msg) {
+  const input = document.getElementById(id);
+  const err   = document.querySelector(`[data-err="${id}"]`);
+  if (input) input.classList.add('border-brand', 'ring-4', 'ring-brand/15');
+  if (err) { err.textContent = msg; err.classList.remove('hidden'); }
+}
+
+function limparErros() {
+  ['f-nome', 'f-endereco'].forEach(id => {
+    const input = document.getElementById(id);
+    const err   = document.querySelector(`[data-err="${id}"]`);
+    if (input) input.classList.remove('border-brand', 'ring-4', 'ring-brand/15');
+    if (err) { err.textContent = ''; err.classList.add('hidden'); }
+  });
+}
+
+function validarFormulario() {
+  limparErros();
+  let ok = true;
+  const nome = $('#f-nome')?.value.trim() ?? '';
+  if (nome.length < 2) { mostrarErro('f-nome', 'Informe seu nome.'); ok = false; }
+  const end = $('#f-endereco')?.value.trim() ?? '';
+  if (end.length < 8) { mostrarErro('f-endereco', 'Informe rua, número e bairro.'); ok = false; }
+  return ok;
+}
+
+/* ═══════════ ENVIO WHATSAPP ═══════════ */
+
+function montarMensagem(itens, cliente, total) {
+  const L = [];
+  L.push(`*NOVO PEDIDO — ${CONFIG.marca}*`);
+  L.push('');
+  L.push('*Itens do pedido:*');
+  itens.forEach(i => L.push(`• ${i.qtd}x ${i.nome} — ${brl(i.subtotal)}`));
+  L.push('');
+  L.push(`*Total dos itens:* ${brl(total)}`);
+  L.push(`*Taxa de entrega:* ${CONFIG.taxaEntrega}`);
+  L.push('');
+  L.push('*Dados para entrega:*');
+  L.push(`• Nome: ${cliente.nome}`);
+  L.push(`• Endereço: ${cliente.endereco}`);
+  L.push(`• Pagamento: ${cliente.pagamento}`);
+  if (cliente.obs) L.push(`• Observações: ${cliente.obs}`);
+  L.push('');
+  if (cliente.pagamento === 'Pix') {
+    L.push('⚠️ *Pix feito — vou enviar o comprovante em seguida.*');
+    L.push('');
+  }
+  L.push('_Pedido gerado pelo site._');
+  return encodeURIComponent(L.join('\n'));
+}
+
+function abrirWhatsApp(cliente, itens) {
+  const total = calcularTotal();
+  const url = `https://wa.me/${CONFIG.whatsapp}?text=${montarMensagem(itens, cliente, total)}`;
+  window.open(url, '_blank', 'noopener');
+}
+
+function enviarFormulario(e) {
+  e.preventDefault();
+  if (!validarFormulario()) return;
+
+  const itens = itensDoCarrinho();
+  if (itens.length === 0) {
+    mostrarToast('Seu pedido está vazio');
+    fecharModal();
+    return;
+  }
+
+  const pagamentoEl = document.querySelector('input[name="f-pagamento"]:checked');
+  const cliente = {
+    nome:      $('#f-nome').value.trim(),
+    endereco:  $('#f-endereco').value.replace(/\s+/g, ' ').trim(),
+    pagamento: pagamentoEl ? pagamentoEl.value : 'Não informado',
+    obs:       $('#f-obs')?.value.trim() ?? ''
+  };
+
+  if (cliente.pagamento === 'Pix') {
+    // guarda pra usar depois do Pix
+    pedidoAtual = { cliente, itens, total: calcularTotal() };
+
+    // fecha form, abre pix
+    fecharModal();
+    setTimeout(() => abrirPix(pedidoAtual.total), 300);
+    return;
+  }
+
+  // Dinheiro / Cartão → vai direto pro WhatsApp
+  abrirWhatsApp(cliente, itens);
+
+  fecharModal();
+  limparCarrinho();
+  $('#form-pedido')?.reset();
+  mostrarToast('Pedido enviado! Confirme no WhatsApp');
+}
+
+function pixFinalizado() {
+  if (!pedidoAtual) { fecharPix(); return; }
+  const { cliente, itens } = pedidoAtual;
+
+  abrirWhatsApp(cliente, itens);
+
+  fecharPix();
+  limparCarrinho();
+  $('#form-pedido')?.reset();
+  pedidoAtual = null;
+  mostrarToast('Enviado! Agora é só mandar o comprovante.');
+}
+
+/* ═══════════ EVENTOS ═══════════ */
+
+function bindEventos() {
+  document.addEventListener('click', (e) => {
+    const add = e.target.closest('[data-add]');
+    if (add) { adicionar(add.dataset.add); return; }
+    const inc = e.target.closest('[data-inc]');
+    if (inc) { adicionar(inc.dataset.inc, true); return; }
+    const dec = e.target.closest('[data-dec]');
+    if (dec) { remover(dec.dataset.dec); return; }
+  });
+
+  $('#btn-finalizar')?.addEventListener('click', abrirModal);
+  $('#modal-close')?.addEventListener('click', fecharModal);
+  $('#modal-backdrop')?.addEventListener('click', fecharModal);
+
+  $('#btn-copiar-pix')?.addEventListener('click', copiarPix);
+  $('#btn-pix-feito')?.addEventListener('click', pixFinalizado);
+  $('#btn-pix-voltar')?.addEventListener('click', () => {
+    fecharPix();
+    setTimeout(() => abrirModal(), 300);
+  });
+  $('#pix-backdrop')?.addEventListener('click', fecharPix);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!$('#pix-modal')?.classList.contains('hidden')) fecharPix();
+      else if (!$('#modal')?.classList.contains('hidden')) fecharModal();
+    }
+  });
+
+  $('#form-pedido')?.addEventListener('submit', enviarFormulario);
+}
+
+/* ═══════════ SCROLL SPY ═══════════ */
+
+function setupScrollSpy() {
+  const secoes = MENU.map(c => document.getElementById(`cat-${c.id}`)).filter(Boolean);
+  const links  = $$('#cat-nav a');
+  if (secoes.length === 0 || links.length === 0) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id.replace('cat-', '');
+      links.forEach(a => {
+        const ativo = a.getAttribute('href') === `#cat-${id}`;
+        a.classList.toggle('text-brand', ativo);
+        a.classList.toggle('ring-brand/30', ativo);
+        a.classList.toggle('text-ink-soft', !ativo);
+        a.classList.toggle('ring-ink/5', !ativo);
+      });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  secoes.forEach(s => obs.observe(s));
+}
+
+/* ═══════════ INIT ═══════════ */
+
+function init() {
+  const ano = $('#ano');
+  if (ano) ano.textContent = new Date().getFullYear();
+
+  carrinho = carregarCarrinho();
+
+  renderNav();
+  renderMenu();
+  renderStatus();
+  sincronizarUI();
+  bindEventos();
+  setupScrollSpy();
+
+  setInterval(renderStatus, 60000);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+                                                                                                                                                                                                                                    </html>
